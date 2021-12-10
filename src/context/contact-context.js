@@ -27,6 +27,9 @@ const initialState = {
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_CONTACT":
+        console.log("ADD_CONTACT");
+        //const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+        // await delay(1000) /// waiting 1 second.
       return {
         contacts: [...state.contacts, action.payload],
       };
@@ -37,10 +40,12 @@ const reducer = (state, action) => {
         ),
       };
     case "START":
+      console.log("START");
       return {
         loading: true,
       };
     case "COMPLETE":
+      console.log("COMPLETE");
       return {
         loading: false,
       };
@@ -49,13 +54,12 @@ const reducer = (state, action) => {
   }
 };
 
-export const ContactContextProvider = props => {
-    const [state, dispatch] = useReducer(reducer, initialState);
+export const ContactContextProvider = (props) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-    return (
-        <ContactContext.Provider value={[state, dispatch]}>
-            {props.children}
-        </ContactContext.Provider>
-
-    )
-}
+  return (
+    <ContactContext.Provider value={[state, dispatch]}>
+      {props.children}
+    </ContactContext.Provider>
+  );
+};

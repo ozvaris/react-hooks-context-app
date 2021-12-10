@@ -34,7 +34,7 @@ const ContactTable = () => {
 
   return (
     <Segment>
-      <Table called striped selectable>
+      <Table celled striped selectable>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Id</Table.HeaderCell>

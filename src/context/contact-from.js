@@ -18,9 +18,17 @@ const ContactForm = () => {
 
   const onSubmit = () => {
     dispatch({
+        type: "START"
+      });
+
+    dispatch({
       type: "ADD_CONTACT",
       payload: { id: _.uniqueId(10), name: name.value, email: email.value },
     });
+
+    dispatch({
+        type: "COMPLETE"
+      });
 
     //Reset Form
     name.onReset();
